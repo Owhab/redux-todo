@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
 
                 return {
                     ...todo,
-                    completed: !tddo.completed,
+                    completed: !todo.completed,
                 }
             });
 
