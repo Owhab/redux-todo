@@ -1,7 +1,7 @@
 import React from 'react';
 import cancelImage from "../images/cancel.png"
 
-const ToDo = () => {
+const ToDo = ({todo}) => {
     return (
         <div
             className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0"
@@ -22,7 +22,7 @@ const ToDo = () => {
             </div>
 
             <div className="select-none flex-1 line-through">
-                Learn React from Learn with Sumit YouTube Channel
+                {todo.text}
             </div>
 
             <div
