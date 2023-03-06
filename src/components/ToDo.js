@@ -1,7 +1,7 @@
 import React from 'react';
 import cancelImage from "../images/cancel.png"
 import {useDispatch} from "react-redux";
-import {toggled} from "../redux/todos/action";
+import {colorSelected, toggled} from "../redux/todos/action";
 
 const ToDo = ({todo}) => {
 
@@ -11,6 +11,10 @@ const ToDo = ({todo}) => {
     const handleStatusChanged = (todoId) => {
         dispatch(toggled(todoId));
 
+    }
+
+    const handleColorChange = (todoId, color) => {
+        dispatch(colorSelected(todoId, color))
     }
 
     return (
@@ -42,6 +46,7 @@ const ToDo = ({todo}) => {
 
             <div
                 className={`flex-shrink-0 h-4 w-4 rounded-full border-2 ml-auto cursor-pointer hover:bg-green-500 border-green-500 ${color === 'green' && '  bg-green-500'}`}
+                onClick={()=> handleColorChange(id, 'green')}
             ></div>
 
             <div
