@@ -1,9 +1,17 @@
 import React from 'react';
 import cancelImage from "../images/cancel.png"
+import {useDispatch} from "react-redux";
+import {toggled} from "../redux/todos/action";
 
 const ToDo = ({todo}) => {
 
+    const dispatch = useDispatch();
+
     const {text, id, color, completed} = todo;
+    const handleStatusChanged = (todoId) => {
+        dispatch(toggled(todoId));
+
+    }
 
     return (
         <div
@@ -16,7 +24,7 @@ const ToDo = ({todo}) => {
                     type="checkbox"
                     className="opacity-0 absolute rounded-full"
                     checked={completed}
-                    onChange={''}
+                    onChange={()=> handleStatusChanged(id)}
                 />
                 {
                     completed && <svg

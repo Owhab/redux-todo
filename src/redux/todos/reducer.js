@@ -1,5 +1,5 @@
 import {initialState} from "./initialState";
-import {ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, TOGGLEDD} from "./actionTypes";
+import {ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, TOGGLED} from "./actionTypes";
 
 
 
@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
                 }
             ];
 
-        case TOGGLEDD:
+        case TOGGLED:
             return state.map(todo => {
                 if(todo.id !== action.payload){
                     return todo;
