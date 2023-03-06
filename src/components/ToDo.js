@@ -2,6 +2,9 @@ import React from 'react';
 import cancelImage from "../images/cancel.png"
 
 const ToDo = ({todo}) => {
+
+    const {text, id, color, completed} = todo;
+
     return (
         <div
             className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0"
@@ -12,17 +15,20 @@ const ToDo = ({todo}) => {
                 <input
                     type="checkbox"
                     className="opacity-0 absolute rounded-full"
+                    checked={completed}
                 />
-                <svg
-                    className="hidden fill-current w-3 h-3 text-green-500 pointer-events-none"
-                    viewBox="0 0 20 20"
-                >
-                    <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/>
-                </svg>
+                {
+                    completed && <svg
+                        className="fill-current w-3 h-3 text-green-500 pointer-events-none"
+                        viewBox="0 0 20 20"
+                    >
+                        <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/>
+                    </svg>
+                }
             </div>
 
             <div className="select-none flex-1 line-through">
-                {todo.text}
+                {text}
             </div>
 
             <div
