@@ -1,5 +1,4 @@
 import {ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, TOGGLEDD} from "./actionTypes";
-import {type} from "@testing-library/user-event/dist/type";
 
 
 export const added = (todoText) => {
