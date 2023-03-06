@@ -10,12 +10,13 @@ const ToDo = ({todo}) => {
             className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0"
         >
             <div
-                className="rounded-full bg-white border-2 border-gray-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 border-green-500 focus-within:border-green-500"
+                className={`rounded-full bg-white border-2 border-gray-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${completed && 'border-green-500 focus-within:border-green-500'}`}
             >
                 <input
                     type="checkbox"
                     className="opacity-0 absolute rounded-full"
                     checked={completed}
+                    onChange={''}
                 />
                 {
                     completed && <svg
