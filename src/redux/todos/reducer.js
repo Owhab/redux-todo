@@ -1,5 +1,5 @@
 import {initialState} from "./initialState";
-import {ADDED, COLORSELECTED, TOGGLEDD} from "./actionTypes";
+import {ADDED, COLORSELECTED, DELETED, TOGGLEDD} from "./actionTypes";
 
 
 
@@ -45,6 +45,10 @@ const reducer = (state = initialState, action) => {
                 }
             })
 
+        case DELETED:
+            return state.filter(todo => todo.id !== todoId);
+
+        
 
 
 
