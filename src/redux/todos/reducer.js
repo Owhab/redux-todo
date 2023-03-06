@@ -1,5 +1,5 @@
 import {initialState} from "./initialState";
-import {ADDED, COLORSELECTED, DELETED, TOGGLEDD} from "./actionTypes";
+import {ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, TOGGLEDD} from "./actionTypes";
 
 
 
@@ -19,7 +19,7 @@ const reducer = (state = initialState, action) => {
                 {
                     id:nextTodoId(state)
                 }
-            ]
+            ];
 
         case TOGGLEDD:
             return state.map(todo => {
@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
 
                 return {
                     ...todo,
-                    completed: !completed,
+                    completed: !tddo.completed,
                 }
             });
 
@@ -43,16 +43,30 @@ const reducer = (state = initialState, action) => {
                     ...todo,
                     color: color,
                 }
-            })
+            });
 
         case DELETED:
-            return state.filter(todo => todo.id !== todoId);
+            return state.filter(todo => todo.id !== action.payload);
 
-        
+        case ALLCOMPLETED:
+            return state.map(todo=> {
+                return{
+                    ...todo,
+                    completed: true
+                }
+            });
 
+        case CLEARCOMPLETED:
+            return state.filter(todo => !todo.completed);
+
+
+        default:
+            break;
 
 
 
     }
 
 }
+
+export default reducer;
