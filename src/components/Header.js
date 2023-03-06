@@ -1,4 +1,6 @@
 import React from 'react';
+import noteImage from "../images/notes.png"
+import doubleTickImage from "../images/double-tick.png"
 
 const Header = () => {
     return (
@@ -7,7 +9,7 @@ const Header = () => {
                 className="flex items-center bg-gray-100 px-4 py-4 rounded-md"
             >
                 <img
-                    src="./images/notes.png"
+                    src={noteImage}
                     className="w-6 h-6"
                     alt="Add todo"
                 />
@@ -26,7 +28,7 @@ const Header = () => {
                 <li className="flex space-x-1 cursor-pointer">
                     <img
                         className="w-4 h-4"
-                        src="./images/double-tick.png"
+                        src={doubleTickImage}
                         alt="Complete"
                     />
                     <span>Complete All Tasks</span>
