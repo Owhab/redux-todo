@@ -32,8 +32,7 @@ const TodoList = () => {
             className="mt-2 text-gray-700 text-sm max-h-[300px] overflow-y-auto"
         >
             {
-                todos.
-                filter(filterByStatus)
+                todos.filter(filterByStatus)
                 .filter(filterByColor)
                 .map(todo => (
                     <ToDo todo = {todo} key = {todo.id}/>
